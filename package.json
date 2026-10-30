@@ -1,0 +1,49 @@
+{
+  "name": "dsh-plugin-example",
+  "version": "0.1.0",
+  "description": "A 70-line DeepSeek Harness plugin: one sidebar tab, one button, one test.",
+  "type": "module",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-conversation"
+      ]
+    }
+  },
+  "engines": {
+    "node": ">=18",
+    "dsh": ">=0.2.0"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test",
+    "check": "dsh-plugin doctor ."
+  },
+  "devDependencies": {
+    "dsh-plugin-toolkit": "file:../kit",
+    "jsdom": "^26.1.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "deepseek-harness",
+    "example"
+  ],
+  "license": "Apache-2.0"
+}
