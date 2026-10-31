@@ -19,8 +19,10 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm test
-      - name: Preflight the manifest
-        uses: WJDdidi-1/dsh-plugin-toolkit@v0.3.0
+      # The action defaults to `verify`: pack the tarball, install it, and mount
+      # the panel from the installed copy. `doctor` reads the working copy and
+      # would still pass if `files` forgot the client bundle.
+      - name: Preflight the tarball
+        uses: WJDdidi-1/dsh-plugin-toolkit@v1
         with:
           dir: .
-          command: doctor
