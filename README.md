@@ -1,5 +1,7 @@
 # dsh-plugin-example
 
+[![checked with dsh-plugin-toolkit](https://raw.githubusercontent.com/WJDdidi-1/dsh-plugin-toolkit/main/docs/badge.svg)](https://github.com/WJDdidi-1/dsh-plugin-toolkit)
+
 A DeepSeek Harness plugin in ~70 lines: one sidebar tab that says hello and counts clicks. It exists to be read, copied, and installed in one command.
 
 ```sh
