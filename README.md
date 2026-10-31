@@ -16,6 +16,19 @@ dsh plugin add dsh-plugin-example
 | Two languages | `COPY` + `ctx.locale.register` | Keys missing from one language fall back to the other, so a half-translated plugin still renders. |
 | The host half | `index.js` | Empty here on purpose: a plugin with nothing to serve does not need routes. |
 
+## Check it
+
+```sh
+npm run check
+```
+
+`check` runs `dsh-plugin verify .`: it packs the tarball, installs it, imports the
+host half and mounts the panel **from the installed copy**. `doctor` reads the
+working folder and would still pass if `files` forgot `client.js` — verify is the
+one that notices. CI runs the same check through
+`WJDdidi-1/dsh-plugin-toolkit@v1` with `version: latest`, so the pin below only
+affects your own `npm test`.
+
 ## Test it
 
 ```sh

@@ -1,6 +1,6 @@
 {
   "name": "dsh-plugin-example",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A 70-line DeepSeek Harness plugin: one sidebar tab, one button, one test.",
   "type": "module",
   "exports": {
@@ -32,10 +32,10 @@
   ],
   "scripts": {
     "test": "node --test",
-    "check": "dsh-plugin doctor ."
+    "check": "dsh-plugin verify ."
   },
   "devDependencies": {
-    "dsh-plugin-toolkit": "^0.3.1",
+    "dsh-plugin-toolkit": "^0.8.3",
     "jsdom": "^26.1.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
