@@ -17,6 +17,9 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
           cache: npm
+      # `npm ci` fails when a version bump forgot the lockfile, but only after
+      # printing npm's whole help text. Name the drifted field instead.
+      - run: npm run check:lockfile
       - run: npm ci
       - run: npm test
       # The action defaults to `verify`: pack the tarball, install it, and mount

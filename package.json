@@ -32,7 +32,8 @@
   ],
   "scripts": {
     "test": "node --test",
-    "check": "dsh-plugin verify ."
+    "check": "dsh-plugin verify .",
+    "check:lockfile": "node scripts/check-lockfile.mjs"
   },
   "devDependencies": {
     "dsh-plugin-toolkit": "^0.20.9",
