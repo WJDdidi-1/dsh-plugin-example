@@ -1,3 +1,10 @@
+## 0.1.4
+
+- Added `npm run check:lockfile`: it compares `package.json` with
+  `package-lock.json` and names the field that drifted before `npm ci` runs, so
+  a release that forgets the lockfile fails with the file to fix instead of
+  npm's help text. CI now runs it before installing.
+
 ## 0.1.3
 
 - `dsh-plugin-toolkit` → `^0.20.9`, so the dev-only toolkit is current with the
