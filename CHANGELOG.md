@@ -1,3 +1,8 @@
+## 0.1.3
+
+- `dsh-plugin-toolkit` → `^0.20.9`, so the dev-only toolkit is current with the
+  published release.
+
 ## 0.1.2
 
 - `dsh-plugin-toolkit` → `^0.8.3`. The pin had drifted two minor versions behind,
