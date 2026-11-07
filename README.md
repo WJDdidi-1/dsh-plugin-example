@@ -76,6 +76,42 @@ assert.match(panel.text(), /Clicks: 1/);
 
 That is the difference between "the bundle parses" and "the button works".
 
+## FAQ
+
+**Does it need a build step?**
+No. `client.js` is the file the host loads: it calls
+`window.__ModuleLoader__.load({ id, factory })` and gets React through the
+host's module loader. There is no bundler and no build output to commit.
+
+**The tab does not appear. What should I check?**
+The tab registers as `kind: 'example'` in the right sidebar, so look there
+first. It requires harness `>=0.2.0` (the first version with
+`sidebarRightTabs`). To see what the host would render without the harness:
+
+```sh
+npm install
+npm run example
+```
+
+**Why does the click count start over at zero?**
+`clicks` is a local `useState` in `Panel`, so it exists only while the tab is
+mounted. Closing the tab or reloading the window starts a fresh count; this
+example does not persist it.
+
+**Can I run the example against my own bundle?**
+Yes — `examples/render.mjs` takes a path:
+
+```sh
+npm run example -- path/to/client.js
+```
+
+Your bundle needs a `[data-testid="bump"]` button for the click step; remove
+that block from `examples/render.mjs` if it does not have one.
+
+**Does it need network access, an API key, or extra permissions?**
+No. `client.js` and `index.js` make no network calls and read no environment
+variables. The dependencies are dev-only, for the test and the example.
+
 ## Requirements
 
 | | |
