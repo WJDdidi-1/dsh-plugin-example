@@ -20,6 +20,31 @@ dsh plugin add dsh-plugin-example
 | Two languages | `COPY` + `ctx.locale.register` | Keys missing from one language fall back to the other, so a half-translated plugin still renders. |
 | The host half | `index.js` | Empty here on purpose: a plugin with nothing to serve does not need routes. |
 
+## Run it
+
+From a checkout, the tab runs in Node without the harness:
+
+```sh
+npm install
+npm run example
+```
+
+`examples/render.mjs` mounts the real `client.js` through the same
+[`dsh-plugin-toolkit`](https://www.npmjs.com/package/dsh-plugin-toolkit) helper
+the test uses, prints what the host would render, clicks the button once, and
+prints again:
+
+```text
+mounted client.js
+  Hello from a plugin This is a real sidebar tab: the host owns its chrome, keyboard, resize and theme. Clicks: 0
+clicked [data-testid="bump"] once
+  Hello from a plugin This is a real sidebar tab: the host owns its chrome, keyboard, resize and theme. Clicks: 1
+```
+
+That is the whole feedback loop: edit `client.js`, rerun, read the text. Point it
+at another bundle with `npm run example -- path/to/client.js`. The test below is
+the same loop with assertions instead of a printout.
+
 ## Check it
 
 ```sh

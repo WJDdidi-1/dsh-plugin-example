@@ -27,10 +27,12 @@
     "index.js",
     "client.js",
     "cordis.patch.yml",
+    "examples/",
     "README.md",
     "LICENSE"
   ],
   "scripts": {
+    "example": "node examples/render.mjs",
     "test": "node --test",
     "check": "dsh-plugin verify .",
     "check:lockfile": "node scripts/check-lockfile.mjs"
