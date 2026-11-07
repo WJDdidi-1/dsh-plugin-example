@@ -46,5 +46,13 @@
     "deepseek-harness",
     "example"
   ],
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/WJDdidi-1/dsh-plugin-example.git"
+  },
+  "homepage": "https://github.com/WJDdidi-1/dsh-plugin-example#readme",
+  "bugs": {
+    "url": "https://github.com/WJDdidi-1/dsh-plugin-example/issues"
+  }
 }
