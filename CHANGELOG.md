@@ -1,3 +1,12 @@
+## 0.1.6
+
+- `dsh-plugin-toolkit` → `^0.21.0`, tracking the current published toolkit.
+  It is a dev-only dependency used by the test and the example, so the shipped
+  `client.js` and `index.js` are unchanged.
+- `npm run check:lockfile` now refreshes `package-lock.json` from `package.json`
+  first through a `precheck:lockfile` step, so bumping a pin no longer fails the
+  check just because the lockfile was not regenerated in the same commit.
+
 ## 0.1.5
 
 - Added `examples/render.mjs` and `npm run example`: the real `client.js` mounts
