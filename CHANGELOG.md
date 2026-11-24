@@ -1,3 +1,14 @@
+## Unreleased
+
+- `check:lockfile` is read-only again. 0.1.6 shipped a `precheck:lockfile` step
+  that ran `npm install --package-lock-only` before the check, so a drifted
+  lockfile was silently repaired and then "passed": the check could not fail on
+  exactly what it exists to catch. The hook is removed and
+  `scripts/check-lockfile.mjs` is unchanged; refreshing the lockfile is now the
+  explicit `npm run lockfile:refresh`, which a developer runs on purpose.
+  (This is the *verification mechanism* fix; the 0.1.6 lockfile *content* fix
+  from #17 is a separate change.)
+
 ## 0.1.6
 
 - `dsh-plugin-toolkit` → `^0.21.0`, tracking the current published toolkit.
