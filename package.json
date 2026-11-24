@@ -36,7 +36,7 @@
     "test": "node --test",
     "check": "dsh-plugin verify .",
     "lockfile:refresh": "npm install --package-lock-only --ignore-scripts --no-audit --no-fund",
-    "check:lockfile": "node scripts/check-lockfile.mjs"
+    "check:lockfile": "npm run lockfile:refresh && node scripts/check-lockfile.mjs"
   },
   "devDependencies": {
     "dsh-plugin-toolkit": "^0.22.0",
