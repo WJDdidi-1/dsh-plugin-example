@@ -35,7 +35,7 @@
     "example": "node examples/render.mjs",
     "test": "node --test",
     "check": "dsh-plugin verify .",
-    "precheck:lockfile": "npm install --package-lock-only --ignore-scripts --no-audit --no-fund",
+    "lockfile:refresh": "npm install --package-lock-only --ignore-scripts --no-audit --no-fund",
     "check:lockfile": "node scripts/check-lockfile.mjs"
   },
   "devDependencies": {
