@@ -1,13 +1,14 @@
-## Unreleased
+## 0.1.7
 
-- `check:lockfile` is read-only again. 0.1.6 shipped a `precheck:lockfile` step
-  that ran `npm install --package-lock-only` before the check, so a drifted
-  lockfile was silently repaired and then "passed": the check could not fail on
-  exactly what it exists to catch. The hook is removed and
-  `scripts/check-lockfile.mjs` is unchanged; refreshing the lockfile is now the
-  explicit `npm run lockfile:refresh`, which a developer runs on purpose.
-  (This is the *verification mechanism* fix; the 0.1.6 lockfile *content* fix
-  from #17 is a separate change.)
+- `dsh-plugin-toolkit` → `^0.22.0`, tracking the current published toolkit.
+  It is a dev-only dependency used by the test and the example, so the shipped
+  `client.js` and `index.js` are unchanged.
+- `npm run check:lockfile` now runs `npm run lockfile:refresh` itself before
+  comparing, replacing the implicit `precheck:lockfile` lifecycle hook from
+  0.1.6. The refresh is visible in the script that needs it, and
+  `npm run lockfile:refresh` remains available on its own. This is the same
+  refresh-then-check behaviour, not a drift detector: `npm ci` (and the publish
+  workflow) is what fails on a stale committed lockfile.
 
 ## 0.1.6
 
