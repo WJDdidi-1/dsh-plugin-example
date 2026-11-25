@@ -1,3 +1,10 @@
+## 0.1.8
+
+- `dsh-plugin-toolkit` → `^0.23.0`, tracking the current published toolkit.
+  It is a dev-only dependency used by the test and the example, so the shipped
+  `client.js` and `index.js` are unchanged and existing installs keep working.
+- `package-lock.json` is synced with this release (0.1.8, toolkit `^0.23.0`).
+
 ## 0.1.7
 
 - `dsh-plugin-toolkit` → `^0.22.0`, tracking the current published toolkit.
