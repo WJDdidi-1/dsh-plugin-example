@@ -3,12 +3,16 @@
 - `dsh-plugin-toolkit` → `^0.22.0`, tracking the current published toolkit.
   It is a dev-only dependency used by the test and the example, so the shipped
   `client.js` and `index.js` are unchanged.
-- `npm run check:lockfile` now runs `npm run lockfile:refresh` itself before
-  comparing, replacing the implicit `precheck:lockfile` lifecycle hook from
-  0.1.6. The refresh is visible in the script that needs it, and
-  `npm run lockfile:refresh` remains available on its own. This is the same
-  refresh-then-check behaviour, not a drift detector: `npm ci` (and the publish
-  workflow) is what fails on a stale committed lockfile.
+- `npm run check:lockfile` is read-only again. 0.1.6's `precheck:lockfile`
+  hook and 0.1.7's first attempt both changed the input before verifying it, so
+  a stale committed lockfile could still pass; the check now compares exactly
+  the committed files. `npm run lockfile:refresh` remains the explicit way to
+  regenerate `package-lock.json`, and `test/lockfile-check.test.mjs` fails if
+  the public command ever writes to the files it verifies. CI also runs
+  `git diff --exit-code -- package.json package-lock.json` right after the
+  check, so the command is verified on the commit under test.
+- `package-lock.json` is synced with this release (0.1.7, toolkit `^0.22.0`);
+  the previous commit bumped the manifest without it.
 
 ## 0.1.6
 

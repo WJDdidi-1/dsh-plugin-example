@@ -20,6 +20,10 @@ jobs:
       # `npm ci` fails when a version bump forgot the lockfile, but only after
       # printing npm's whole help text. Name the drifted field instead.
       - run: npm run check:lockfile
+      # The check must only read what it verifies: on the commit under test this
+      # command has to leave both files untouched. 0.1.7 briefly rewired the
+      # check to refresh the lockfile first, which made a stale commit pass.
+      - run: git diff --exit-code -- package.json package-lock.json
       - run: npm ci
       - run: npm test
       # The action defaults to `verify`: pack the tarball, install it, and mount
